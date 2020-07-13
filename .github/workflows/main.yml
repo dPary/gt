@@ -5,24 +5,24 @@ on:
     branches:
       - master
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v1
-#       - uses: enriikke/gatsby-gh-pages-action@v2
-#         with:
-#           access-token: ${{ secrets.access_token }}
-#           deploy-branch: gh-pages
-#           gatsby-args: --prefix-paths
 jobs:
   build:
-    runs-on: ubuntu-latest # Action uses Docker so only Linux is supported
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1 # Checkout your triggered branch
-      - uses: xmflsct/action-publish-gatsby@v1 # Uses this action to run further steps
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          publishBranch: 'gh-pages' # Not required, default publishing branch is master
-          token: ${{ secrets.access_token }} # Your personal access token of GitHub, read more below of how to obtain one and keep it safe
-          name: 'lijl' # Not required, default to action's maintainer
-          email: '100602650@qq.com' # Not required, default to action's maintainer
+          access-token: ${{ secrets.A_B }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest # Action uses Docker so only Linux is supported
+#     steps:
+#       - uses: actions/checkout@v1 # Checkout your triggered branch
+#       - uses: xmflsct/action-publish-gatsby@v1 # Uses this action to run further steps
+#         with:
+#           publishBranch: 'gh-pages' # Not required, default publishing branch is master
+#           token: ${{ secrets.access_token }} # Your personal access token of GitHub, read more below of how to obtain one and keep it safe
+#           name: 'lijl' # Not required, default to action's maintainer
+#           email: '100602650@qq.com' # Not required, default to action's maintainer
